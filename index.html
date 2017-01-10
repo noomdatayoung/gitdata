@@ -1,1 +1,334 @@
-test
+<!DOCTYPE html>
+<html>
+<title> noom</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,target-densitydpi=160"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+
+<meta charset="utf-8"></meta>
+<style>
+html { height: 100%;
+ width:100%;}
+body {
+    height:100%;
+    width:96%;
+	left:1%;
+	right:1%;
+    min-height: 100%;
+    //background: #000000;
+    //color: #FFFFFF;
+    position:relative;
+}
+	html,
+	body {
+		margin:0;
+		padding:0;
+		height:100%;
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+#header {
+    height:35px;
+    width:99%;
+    top:0px;
+    left:0px;
+	//left:1%;
+	right:1px;
+	padding:0px;
+    background: white;
+	//#CCCCCC;
+    position:absolute;
+	padding-top: 0px;
+	padding-right: 13px;
+	
+position:absolute;
+}
+#footer {
+    height:27px;
+    width:100%;
+	width:100%;
+    bottom:0px;
+    left:0px;
+	right:0px;
+    background: white;
+	#166666;
+    position:absolute;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:grey;
+}
+#content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height:100%;
+	 width: 100%;
+   padding: 0px 0px 68px 0px;
+    overflow: hidden;
+	font-size:17px;
+	    
+}
+
+#content #scrollableContent {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#content #scrollableContent #paddingContent {
+	padding: 0px 0px 0px 2px;
+	//padding-top: 37px;
+	padding-right: 0px;
+    padding-bottom: 5px;
+
+}
+#scrollableContent {
+	margin-top:38px;
+	
+}
+a:link, a:visited {
+    background-color: grey;//#f44336;
+    color: white;
+    padding: 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, a:active {
+    background-color: red;
+
+}
+  iinput[type="text"] {width: 80%;}
+
+  #ask {  
+	display: inline-block;
+	ffloat: left;
+	width: 55%;
+	padding-left:5px;
+    font-size:19px;
+	height:29px;
+	margin-top: 1px;
+	margin-left: 2px;
+	box-shadow: 0px 0px 0px #888888;
+	 border:0px solid white;
+	 border-top:0px solid white;
+	 border-left:0px  solid white;
+	 border-right:0px  solid white;
+	 border-bottom:2px solid red;
+	 color:black;
+	 background-color:white; 
+	 position: fixed;
+	     		 letter-spacing: 0px;
+	//	 line-height: 20%;
+//padding: 0px 10px;
+	}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 2) { 
+#ask {  
+	height:21px;
+  }
+  }
+  .input {
+  border-color:white;
+  border:0px; solid white;
+  }
+	#relo {  
+  //position: fixed;
+	height:26px;
+	float: right;
+	margin-top: 2px;
+	width: 20px;
+	border:01px solid white;
+	padding-top: 0px;
+	height:28px;
+	padding-right: 10px;
+	padding-left:0px;
+	  background-color: grey;//#f44336;
+    color: white;
+	    font-size:24px;
+		    cursor: help;
+
+    //padding: 3px 20px;
+    text-align: right;
+    //text-decoration: none;
+    ddisplay: inline-block;
+	}
+  #bask {  
+	 margin-top: 0px;
+	display: inline-block;
+	float: right;
+	width: 25px;
+	padding-top: 0px;
+	height:32px;
+	padding-right: 10px;
+	}
+#ev{
+	background-color:#f2f2f2; 
+	width:100%;
+	display:block;
+}	
+#od{
+	background-color:#white; 
+	width:100%;
+	display:block;
+}	
+</style>
+<body>
+    <div id="header">     <div id="demox">
+
+    
+	<input type  id=ask name=ask onKeyup="doit();" onChange="doit();" onPaste="doit();" contenteditable /></div>
+	<div id="relo" name="txt" Value="R" onClick="relo()" />R</div>
+	<div id="relo" name="txt" Value="C" onClick="dell()" />C</div>
+	<div  id="relo" name="txt" Value=">" onClick="doit()" />S</div>
+	
+	
+
+</div>
+
+</div>
+        <div id="content">
+            <div id="scrollableContent">
+                <div id="paddingContent">
+				<div id="demoy"  onclick="focusme(this)"></div>
+            </div></div></div>
+    <div id="footer"><div id="demoz"></div></div>
+	<script type="text/javascript" src="thdat.js"></script>
+<script>
+window.addEventListener('resize', function() {
+sf=document.getElementById("ask").value;
+y = location.hash.replace("#","");
+if (sf) location.hash=sf;
+if (!sf) location.hash=y;
+});
+function dell(){
+document.getElementById("ask").value="";
+	location.hash=trim12("");
+	doit();
+}
+function focusme(mee){
+	//document.getElementById(mee).focus();
+	return
+}
+function relo(){
+location.reload();
+}
+function runScript(e) {
+    if (e.keyCode == 13) {
+        var tb = document.getElementById("ask");
+        eval(tb.value);
+        return false;
+    }
+}
+function trim12 (str) {
+	var	str = str.replace(/^\s\s*/, ''),
+		ws = /\s/,
+		i = str.length;
+	while (ws.test(str.charAt(--i)));
+	return str.slice(0, i + 1);
+}
+function findme(){
+	y = location.hash.replace("#","");
+	searchfor=document.getElementById("ask").value;
+	//if ((y) && (!searchfor) document.getElementById("ask").value=y;
+	//searchfor=document.getElementById("ask").value;
+	location.hash=searchfor;
+	//if (trim12(searchfor)=="") return false
+	sresult=[];
+	dc=(data.length);
+	for (i=0;i<dc;i++){
+		dat=data[i];
+		//sf=searchfor;
+		rgxp = new RegExp(searchfor, "gi"); //g [i] ignore case sensitive
+		if (dat.match(rgxp)) { 
+			dat.replace("'","\'");
+			if (searchfor) a=gw(dat,searchfor);		else a=dat;	
+			sresult.push (a); 				
+		}
+	}
+	return sresult;
+}
+function gw(bdt,sf){
+dataorg=bdt;
+datan=bdt.toLowerCase();
+sforg=sf;
+sf=sf.toLowerCase();
+chang="<mark>"+sf+"</mark>";					
+//nz = data.replace(sf, chang);
+nx="";
+//document.write(data);
+//document.write("<br>");
+j=0;
+for (h=0;h < datan.length;h++ ){
+		nt = datan.substr(j, sf.length) ;
+		ot = dataorg.substr(j, sf.length) ;
+		if (nt==sf){
+			nx+="<mark><b>";nx += ot+"</b></mark>";j+=sf.length;
+		}
+		else {	
+			if (dataorg[j]) nx += dataorg[j];
+			j++;	  
+		}		 
+}	  
+//nx=dataorg;
+return nx;
+}
+
+function gimer(arry,pagef,st){
+	myar=JSON.parse(arry);
+	max=myar.length-1;
+	maxar=myar.length-1;
+	//maxar=arry.length;
+	//max=maxar;
+	
+	if (st==0) {stp=0;cpage=0;}
+	if (st==3) {stp=maxar-(maxar%pagef);cpage=stp;}
+	if ((st==1) && (cpage+pagef)<arry.length) { stp=cpage+pagef; cpage=stp;}
+	if((st==2) && (cpage+pagef)>pagef) {stp=cpage-pagef;cpage=stp;} 
+	if ((stp+pagef)<myar.length) max=stp+pagef; else max=myar.length;
+	//if (cpage+pagef>max) cpage=cpage-pagef;
+	for (var i = stp,  text = ""; i< max; i++) {
+		if (myar[i]) datt=""+myar[i] + "<br>";
+		if(i%2 ==0 ) text += "<span id=ev>"+datt+"</span>";
+		else text += "<span id=od>"+datt+"</span>";
+		
+	}
+sarry=(JSON.stringify(myar));
+
+linkh='<a href=# onclick=gimer(sarry,pagef,0);> [< </a>';
+//linkh+='!<a href=# onclick=gimer(sarry);> > </a>';
+if (cpage>0) {
+linkh+=' <a href=# onclick=gimer(sarry,pagef,2);> < </a>';
+}
+if ((cpage)<max) {
+	linkh+=' <a href=# onclick=gimer(sarry,pagef,1);> > </a>';
+}
+linkh+=' <a href=# onclick=gimer(sarry,pagef,3);> >] </a> | (' +stp+":"+cpage+":"+maxar+')';
+	document.getElementById("demoz").innerHTML = linkh;
+	document.getElementById("demoy").innerHTML = text;
+	document.getElementById("demoy").focus();
+
+}
+function doit(){
+	
+	res=findme();
+	pagef=20;
+	npage=0;
+	ppage=0;
+	cpage=0;
+	stp=0;
+	sarry=JSON.stringify(res);
+	gimer(sarry,pagef,0)
+	document.getElementById("ask").addEventListener("paste", findme, false);
+			document.getElementById("ask").focus();
+
+}
+	doit();
+
+</script>
+
+</body>
+
