@@ -1,0 +1,129 @@
+<div id="menu"><b>Ready.</b>
+<a href=# onclick=call("https://www.w3schools.com/js/ajax_info.txt");>Neem</a>
+<a href=# onclick=call("http://tulip.datayoung.com/r.php");>tulip</a>
+<a href=# onclick=call("http://ant.datayoung.com/r.php");>ant</a>
+<a href=# onclick=call("http://alpha.datayoung.com/r.php");>alpha</a>
+<a href=# onclick=call("http://qx.datayoung.com/~data/r.php");>qx</a>
+<a href=# onclick=call("http://lobo.datayoung.com/r.php");>lobo</a>
+<a href=# onclick=call("http://la.datayoung.com/r.php");>la</a>
+<a href=# onclick=call("http://db.datayoung.com/r.php");>d8b</a>
+<a href=# onclick=call("http://ax.datayoung.com/r.php");>alphaH</a>
+<a href=# onclick=call("http://ax.kunok.com/~dbwin/r.php");>ax</a>
+</div>
+
+
+you need <?php header('Access-Control-Allow-Origin: *');?> in top head
+<div id="contain">
+<div id="txtHint"><b>Ready.</b></div>
+</div>
+<div id="footer_container">
+    <div id="footer"><hr></div>
+</div>
+<div id="fade" class="black_overlay"></div>
+
+<script>
+function lpop(pwindow,cmd)
+{
+  //left: 0;
+document.getElementById(pwindow).style.display='block';
+document.getElementById('fade').style.display='block';
+document.getElementById("i1mage").innerHTML = "<center><img src="+cmd+"></center>";
+//document.getElementById('image').setAttribute('src', cmd); 
+  
+
+}
+function cpop(pwindow)
+{
+//alert(cmd);
+
+document.getElementById(pwindow).style.display='none';
+document.getElementById('fade').style.display='none';  
+
+}
+</script>
+
+
+<script>
+var xmlhttp;
+function call(task)
+{
+	startwait();
+xmlhttp=GetXmlHttpObject();
+if (xmlhttp==null)
+  {
+  alert ("Browser does not support HTTP Request");
+  return;
+  }
+var url=task;
+xmlhttp.onreadystatechange=stateChanged;
+xmlhttp.open("GET",url,true);
+xmlhttp.send(null);
+}
+
+function stateChanged()
+{
+if (xmlhttp.readyState==0) document.title="The request is not initialized";
+if (xmlhttp.readyState==1) document.title="The request has been set up";
+if (xmlhttp.readyState==2) document.title="The request has been sent";
+if (xmlhttp.readyState==3) document.title="The request is not initialized";
+if (xmlhttp.readyState==4) document.title="Welcome";
+if (xmlhttp.responseText) 
+{
+b=xmlhttp.responseText;
+document.getElementById("txtHint").innerHTML=b;
+//sa=JSON.parse(b);
+//var jay= <?php echo json_encode($phpArray ); ?>;
+alert("stringify"+sa);
+
+//exit;
+}
+//alert(xmlhttp.readyState+xmlhttp.responseText);
+//if (xmlhttp.readyState==4)
+//{
+
+//document.title=xmlhttp.responseText+xmlhttp.status;
+//var a=xmlhttp.responseText.split("-:-");
+			//document.title =a[0];
+			//document.title ="sss";//a[0];
+			//alert (response);
+		//	alert(a[0]);
+		//	b=xmlhttp.responseText;
+			//var b=xmlhttp.responseText.replace(a[0]+"-:-","");
+//c=JSON.parse(b)
+//alert(c.aid);
+//sa=JSON.parse(b);
+//alert("stringify"+sa[1].ss);
+
+//document.getElementById("txtHint").innerHTML=b;
+//sa[0].aid;
+
+//xmlhttp.responseText;
+
+//}
+
+}
+
+function GetXmlHttpObject()
+{
+if (window.XMLHttpRequest)
+  {
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  return new XMLHttpRequest();
+  }
+if (window.ActiveXObject)
+  {
+  // code for IE6, IE5
+  return new ActiveXObject("Microsoft.XMLHTTP");
+  }
+return null;
+}
+
+function startwait()
+{
+// document.getElementById('txtHint').innerHTML="Processing...";
+document.getElementById("txtHint").innerHTML="<span style='cursor: wait'>Connecting...</span>";
+
+}
+//call ("http://qx.datayoung.com/~data/ip.php");
+call ("http://example.com/");
+</script>
